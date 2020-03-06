@@ -1,7 +1,9 @@
 from django.shortcuts import render
+from .models import List
 
 def home(request):
-  return render(request, 'home.html', {})
+  all_items = List.objects.all
+  return render(request, 'home.html', {'all_items': all_items})
 
 def about(request):
   # also can define a dictionary (usually named context) here and refer to it in render()
